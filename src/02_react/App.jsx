@@ -1,98 +1,49 @@
 import React from 'react';
 
-import api from './api';
+import Header from './Header';
+import Results from './Results';
+import SelectCountry from './SelectCountry';
+
+import api from '../mockApi';
+
 import styles from './styles.module.css';
 
+// 1. Header component
+// 2. Results component
+// 3. SelectCountry
+// 4. Stworz fakeowe dane w state
+// 5. Przekaz dane do SelectCountry
+// Przekaz dane do Results
+// Wydobrebnij SelectCountryItem
+// Pobierz dane z api w componentDidMount i ustaw state
+// 
 
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            countries: [],
-            selectedCountry: {},
-            isFetchingData: false
+            countries: ['Polska']
         };
     }
-    handleSelectCountry = (country) => () => {
-        this.setState((state) => {
-            return {
-                selectedCountry: country
-            };
-        });
-    };
-    componentDidMount() {
-        this.setState({
-            isFetchingData: true
-        });
-        api.getData()
-            .then(countries => {
-                const europe = countries.filter(country => country.region === 'Europe');
-                const europeSorted = europe.sort((countryA, countryB) => countryB.population - countryA.population);
-                const europeSortedTop10 = europeSorted.slice(0);
-                return europeSortedTop10;
-            })
-            .then(res => {
-                this.setState({
-                    countries: res,
-                    selectedCountry: res[0],
-                    isFetchingData: false
-                })
-            })
-            .catch(err => {
-                this.setState({
-                    isFetchingData: false
-                });
-                // handle error here
-            });
-    }
+    // componentDidMount() {
+    //     api.getData().then(countries => {
+    //         this.setState({
+    //             countries
+    //         });
+            
+    //     });
+    // }
     render() {
-        const {
-            countries,
-            selectedCountry,
-            isFetchingData
-        } = this.state;
+        const { countries } = this.state;
+        console.log(countries);
+        
         return(
-            <div className={styles.wrapper}>
-
-                <div className={styles.header}>
-                    <h1>Countries App</h1>
+            <div className={styles.container}>
+                <Header />
+                <div className={styles["content-container"]}>
+                    <SelectCountry />
+                    <Results />
                 </div>
-
-                {isFetchingData &&
-                    <div className={styles['is-loading']}>
-                        <h2>Loading data...</h2>
-                    </div>
-                }
-                
-                {!isFetchingData &&
-                    <div className={styles['countires-container']}>
-                        <h2>Select country</h2>
-                        <ul className={styles.countries}>
-                            {countries.map(country => (
-                                <li
-                                    key={country.id}
-                                    onClick={this.handleSelectCountry(country)}
-                                    className={(country.id === selectedCountry.id) ? styles.selected : '' }
-                                >
-                                    {country.name}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                }
-
-                {!isFetchingData &&
-                    <div className={styles['details-container']}>
-                        <h2>{selectedCountry.name}</h2>
-                        <ul>
-                            <li>Capital: {selectedCountry.capital}</li>
-                            <li>Population: {(selectedCountry.population / 1000000).toFixed(2)}</li>
-                            <li>Region: {selectedCountry.region}</li>
-                            <li>Id: {selectedCountry.id}</li>
-                        </ul>
-                    </div>
-                }
-
             </div>
         );
     }
