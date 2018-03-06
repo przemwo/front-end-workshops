@@ -11,12 +11,12 @@ import styles from './styles.module.css';
 // 1. Header component
 // 2. Results component
 // 3. SelectCountry
-// 4. Stworz fakeowe dane w state
+// 4. Stworz fake dane w state (id, name, capital, population, region)
 // 5. Przekaz dane do SelectCountry
 // Przekaz dane do Results
 // Wydobrebnij SelectCountryItem
 // Pobierz dane z api w componentDidMount i ustaw state
-// 
+// stworz komponent isLoading
 
 class App extends React.Component {
     constructor() {

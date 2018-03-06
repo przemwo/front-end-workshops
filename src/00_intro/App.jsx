@@ -76,14 +76,14 @@ const data = [
 // console.log(usersSorted);
 
 // 6. Zwroc obiekt zliczajacy liczbe osob w poszczegolnych miastach
-// const counter = data.reduce((cum, user) => {
+// const counter = data.reduce((acc, user) => {
 //     const city = user.city;
-//     if(typeof cum[city] === 'undefined') {
-//         cum[city] = 1;
+//     if(typeof acc[city] === 'undefined') {
+//         acc[city] = 1;
 //     } else {
-//         cum[city] += 1;
+//         acc[city] += 1;
 //     }
-//     return cum;
+//     return acc;
 // }, {});
 // console.log(counter);
 
