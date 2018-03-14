@@ -2,63 +2,100 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 html, body {
     height: 100%;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
 }
 
 :global #root {
     height: 100%;
 }
 
+
 .container {
-    background-color: red;
-    display: flex;
-    flex-direction: column;
     height: 100%;
+    background: lightgray;
+    display: flex;
+    flex-direction: column;
 }
 
-.header {
-    background-color: yellow;
+
+.header-container {
+    background-color: orangered;
+    color: white;
+    padding: 2rem;
 }
 
-.content {
-    background-color: gold;
+
+.content-container {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-@media screen and (min-width: 720px) {
-    .content {
-        flex-direction: row;
-    }
-    .select-container {
-        flex-basis: 40%;
-    }
-    .results-container {
-        flex-basis: 40%;
-    }
-}
 
-.select-container {
-    background-color: cyan;
+.select-country-container {
+    padding: 2rem;
     flex-grow: 1;
+    flex-basis: 60%;
     display: flex;
     flex-direction: column;
 }
 
-.select-container ul {
-    background-color: green;
+.select-country-container h2 {
+    margin-bottom: 1rem;
+}
+
+.select-country-container ul {
     flex-grow: 1;
     overflow-y: scroll;
 }
 
-.select-container ul li {
-    padding: 16px;
+.select-country-container ul li {
+    padding: 1.25rem;
+    font-size: 1.25rem;
+    background-color: orange;
+    border: 1px solid orangered;
+    border-bottom: none;
+    cursor: pointer;
 }
 
+.select-country-container ul li:last-child {
+    border-bottom: 1px solid orangered;
+}
+
+.select-country-container ul li:hover {
+    background-color: gold;
+}
+
+.select-country-container ul li.selected {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+
 .results-container {
-    background-color: pink;
+    background-color: red;
+    color: white;
+    padding: 2rem;
+    flex-basis: 40%;
+}
+
+.results-container h2 {
+    margin-bottom: 1rem;
+}
+
+
+@media screen and (min-width: 45rem) {
+    .content-container {
+        flex-direction: row;
+    }
 }

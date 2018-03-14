@@ -10,7 +10,7 @@ export default (() => {
             } else {
                 setTimeout(() => {
                     resolve(data);
-                }, 1000);
+                }, 2000);
             }
         });    
 

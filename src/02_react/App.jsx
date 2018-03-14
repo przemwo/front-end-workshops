@@ -8,15 +8,19 @@ import api from '../mockApi';
 
 import styles from './styles.module.css';
 
-// 1. Header component
-// 2. Results component
-// 3. SelectCountry
-// 4. Stworz fake dane w state (id, name, capital, population, region)
-// 5. Przekaz dane do SelectCountry
-// Przekaz dane do Results
-// Wydobrebnij SelectCountryItem
-// Pobierz dane z api w componentDidMount i ustaw state
-// stworz komponent isLoading
+// TEMATY
+// state (setState + jego asynchroniczne działanie)
+// bindowanie this do metod (różne warianty)
+// prospy w dół, akcje w górę - pokazać pełne koło
+// bindowanie wartosci do metod przekazywanych w dol
+
+// DZIALANIA
+// wyodrebnij komponenty
+// przekaz propsy "z palca" do komponentów (do Results)
+// stworz state (id, name, capital, population, region) i przekaz propsy ze state do kompoenentów
+// handleOnClick w SelectCountry - update state
+// pobierz dane z api
+// komponent isLoading
 
 class App extends React.Component {
     constructor() {
