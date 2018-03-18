@@ -12,9 +12,9 @@ class App extends React.Component {
     state = {
         selectedCountry: {
             id: 'PL',
-            name: 'Polska',
-            capital: 'Warszawa',
-            population: 40,
+            name: 'Poland',
+            capital: 'Warsaw',
+            population: 38437239,
             region: 'Europe'
         },
         countries: [],
