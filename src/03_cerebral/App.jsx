@@ -38,20 +38,10 @@ class App extends React.Component {
         });
     }
     render() {
-        const { foo, clicked } = this.props;
         const { selectedCountry, countries, isLoading } = this.state;
         return(
             <div className={styles.container}>
                 <Header />
-                <div>
-                    <h2>Cerebral test</h2>
-                    <p>{foo}</p>
-                    <button
-                        onClick={clicked}
-                    >
-                        Click me!
-                    </button>
-                </div>
                 {isLoading ?
                     <h1>Is Loading...</h1> :
                     (countries.length > 0) ?
@@ -66,8 +56,5 @@ class App extends React.Component {
         );
     }
 }
-const cerebralProps = {
-    foo: state`foo`,
-    clicked: signal`clicked`
-};
+const cerebralProps = {};
 export default connect(cerebralProps, App);
