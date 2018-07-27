@@ -1,4 +1,4 @@
-const someData = [
+var someData = [
     {
         name: 'Adam',
         surname: 'Nowak',
